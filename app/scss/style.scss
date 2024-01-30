@@ -1,0 +1,12 @@
+@import "_media";
+@import "_fonts";
+@import "_normalize";
+@import "_reset";
+@import "_slick-theme";
+@import "_slick";
+
+body {
+    background-color: red;
+    margin-bottom: 10px;
+    display: flex;
+}
