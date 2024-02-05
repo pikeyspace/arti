@@ -1,19 +1,18 @@
 // Colors
 
-$pink: Pink;
 $white: #ffffff;
 $white1: #ececec;
 $black: #000000;
+$grey: #808080;
+$grey2: #d1d1d1;
 
-$background-color: $white;
+$section-background-color1: $grey;
+$section-background-color2: $grey2;
 $main-font-color: $black;
-$btn-background-color: $pink;
-$btn-hover-background-color: $white1;
-$btn-hover-color: $pink;
-$menu-item-color: $black;
-
-
-$btn-color: $white;
+$btn-background-color: $white;
+$btn-hover-background-color: $black;
+$btn-hover-color: $white;
+$btn-color: $black;
 
 
 // Fonts
@@ -26,21 +25,19 @@ $main-font-family: $roboto;
 // Size
 
 $font-size16: 16px;
-$font-size24: 24px;
 $font-size19: 19px;
+$font-size24: 24px;
+$font-size60: 60px;
 
 $line-height18: 18px;
 $line-height34: 34px;
 
 
+$h1-font-size: $font-size60;
+$main-font-size: $font-size24;
+$btn-font-size: $font-size24;
 
-$main-font-size: $font-size16;
-$title-font-size: $font-size24;
-$btn-font-size: $font-size19;
 
-
-$main-line-height: $line-height18;
-$title-line-height: $line-height34;
 
 
 
