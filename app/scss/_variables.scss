@@ -6,20 +6,24 @@ $black: #000000;
 $grey: #808080;
 $grey2: #d1d1d1;
 
+$header-background-color: $white;
 $section-background-color1: $grey;
 $section-background-color2: $grey2;
 $main-font-color: $black;
 $btn-background-color: $white;
 $btn-hover-background-color: $black;
 $btn-hover-color: $white;
+$btn-border-color: $black;
+
 $btn-color: $black;
 
 
 // Fonts
 
 $roboto: 'Roboto', sans-serif;
+$montserrat: 'Montserrat', sans-serif;
 
-$main-font-family: $roboto;
+$main-font-family: $montserrat;
 
 
 // Size
@@ -34,6 +38,8 @@ $line-height34: 34px;
 
 
 $h1-font-size: $font-size60;
+$h2-font-size: $font-size60;
+
 $main-font-size: $font-size24;
 $btn-font-size: $font-size24;
 

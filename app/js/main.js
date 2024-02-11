@@ -1,25 +1,10 @@
-// Boorger-menu script
-$(function() {
-    $('.header-burger').click(function(event) {
-        $('.header-burger, .header-menu').toggleClass('active');
-        $('.header-inner').toggleClass('active');
-        $('body').toggleClass('lock')
-    })
-    $('.menu-item>a').click(function(event) {
-        $('.header-burger, .header-menu').removeClass('active');
-        $('body').removeClass('lock');
-    })
-})
-
-
-
 
 $(function() {
     $(window).scroll(function() {
         if ($(this).scrollTop() != 0) {
-            $('.header-inner').addClass('not-top');
+            $('.header').addClass('not-top');
         } else if ($(this).scrollTop() === 0) {
-            $('.header-inner').removeClass('not-top');
+            $('.header').removeClass('not-top');
         };
     });
 });
@@ -27,20 +12,6 @@ $(function() {
 
 
 // Slider script
-$(function() {
-    $('.header-slider').slick({
-        dots: true,
-        speed: 3000,
-        autoplay: true,
-        cssEase: 'linear',
-        autoplaySpeed: 3000,
-        pauseOnHover: true,
-        pauseOnDotsHover: true,
-        prevArrow: false,
-        nextArrow: false
-    });
-});
-
 
 // Slow motion in menu click
 $(document).ready(function() {
@@ -56,44 +27,32 @@ $(document).ready(function() {
 });
 
 
-// Accordion
-// $(document).ready(function() {
-//     $('.accordion__content .accordion__content_title').on('click', f_acc);
-// });
-
-// function f_acc() {
-//     $('.accordion__content .accordion__content_list').not($(this).next()).slideUp(1000);
-//     $('.accordion__content .accordion__content_title').find('span').addClass('icon-circle-up').removeClass('icon-circle-down');
-//     $(this).next().slideToggle(1000);
-//     $('.accordion__content .accordion__content_title').not(this).find('span').addClass('icon-circle-down').removeClass('icon-circle-up');
-// }
-
-let accordion = function() {
-    let data = $('.main__text-block').attr('data-accordion');
-    $('.main__text-block_title').on('click', function() {
-        if (data === 'close') {
-            $('.text-block_text').slideUp();
-            if ($(this).hasClass('active')) {
-                $(this).toggleClass('active');
-            } else {
-                $('.main__text-block_title').removeClass('active');
-                $(this).toggleClass('active');
-            }
-        } else {
-            $(this).toggleClass('active');
-        }
-        $(this).next('.text-block_text').not(':animated').slideToggle(1000);
+// Tabs
+(function($) {
+    $(function() {
+        $("ul.tabs__caption").on("click", "li:not(.active)", function() {
+            $(this)
+                .addClass("active")
+                .siblings()
+                .removeClass("active")
+                .closest("div.tabs")
+                .find("div.tabs__content")
+                .removeClass("active")
+                .eq($(this).index())
+                .addClass("active");
+        });
     });
-};
-accordion();
+})(jQuery);
+
+
 
 
 // Slider for review
 $(function() {
-    $('.review__slider').slick({
+    $('.section-slider').slick({
         dots: false,
         speed: 3000,
-        autoplay: true,
+        autoplay: false,
         cssEase: 'linear',
         autoplaySpeed: 3000,
         prevArrow: false,
