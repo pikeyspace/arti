@@ -1,29 +1,34 @@
 @import "_media";
 @import "_fonts";
 @import "_normalize";
-@import "_reset";
-@import "_slick-theme";
-@import "_slick";
 @import "_variables";
-
+@import "_slick";
 
 body {
     font-family: $main-font-family;
 }
 
+a {
+    text-decoration: none;
+    color: inherit;
+    transition: .7s;
+}
+
 .header{
     background-color: $white;
     padding: 16px 32px;
-    opacity: 90;
-    &.not-top {
-        top: 0;
-        opacity: 90%;
-        position: sticky;
-    }
+    width: auto;
+    top: 0;
+    left: 0;
+    z-index: 99;
+    position: sticky;
     &-inner {
         display: flex;
         justify-content: space-between;
+        & :last-child {
+            justify-content: right;
         }
+    }
     &-block {
         width: 50%;
         display: flex;
@@ -31,18 +36,9 @@ body {
         align-items: center;
     }
     &-logo {
-        text-decoration: none;
-        color: inherit;
-        font-weight: 700;
         & img {
             width: 200px;
         }
-    }
-    &-title {
-        font-size: $h1-font-size;
-    }
-    &-text {
-        font-size: $font-size24;
     }
 }
 
@@ -103,6 +99,10 @@ body {
         color: $white;
 }
 
+.h2-black{
+    color: $black;
+}
+
 h3 {
         font-size: $font-size24;
         text-transform: uppercase;
@@ -115,13 +115,11 @@ h3 {
         line-height: 30px;
         color: $white;
 }
-.h2-black{
-        color: $black;
-}
 .p-black{
         font-size: $font-size24;
         line-height: 30px;
         color: $black;
+        margin: 0;
 }
 .bg-image {
         background-size: cover;
@@ -135,34 +133,34 @@ h3 {
 }
 
 .section {
-    &#main{
-        background-color: $grey2;
-    }
-    &#style{
+    &#main,
+    &#style,
+    &#team
+    {
         background-color: $grey2;
     }
     &#team {
-        background-color: $grey2;
         padding: 50px 0;
 
     }
-    &#studio {
-        background-color: $grey;
-    }
-    &#partners {
+    &#studio,
+    &#partners,
+    &#service
+    {
         background-color: $grey;
     }
     &#service {
-        background-color: $grey;
         padding: 50px 0;
     }
 
     &-wrapper {
         display: flex;
         flex-wrap: wrap;
+        justify-content: center;
     }
     &-block {
         width: 50%;
+        min-width: 600px;
         text-align: center;
         height: 100vh;
         display: flex;
@@ -190,10 +188,19 @@ h3 {
 
 .slider {
     width: 50%;
+    &-item {
+        width: 100%;
+        height: 100vh;
+        background-repeat: no-repeat;
+        background-position: bottom;
+        background-size: cover;
+    
+    }
 }
 
 .team {
     &-item {
+        padding: 0 10px;
         max-width: 30%;
         & img {
             width: 100%;
@@ -213,10 +220,7 @@ h3 {
                 flex-direction: column;
             }
             &_link{
-                margin-left: 20px;
-                transition: .8s;
                 border-radius: 14px;
-
                 & img {
                     height: 48px;
                 }
@@ -236,11 +240,14 @@ h3 {
                     & .link-white {
                     display: block;
                 }
-
                 }
         }
         }
     }
+}
+
+.right20{
+    margin-left: 20px;
 }
 
 .tabs {
@@ -351,45 +358,11 @@ h3 {
     overflow: hidden;
 }
 
-@media screen and (max-width: 650px) {
-    .tabs__caption li {
-        -webkit-flex: 1 0 auto;
-        -ms-flex: 1 0 auto;
-        flex: 1 0 auto;
-    }
-    .vertical .tabs__caption {
-        float: none;
-        display: -webkit-flex;
-        display: -ms-flexbox;
-        display: flex;
-    }
-    .vertical .tabs__caption li {
-        border-width: 2px 2px 0;
-        border-radius: 5px 5px 0 0;
-    }
-    .vertical .tabs__caption li:last-child:before {
-        display: block;
-    }
-    .vertical .tabs__caption .active:after {
-        top: auto;
-        bottom: -5px;
-        left: 0;
-        right: 0;
-        width: auto;
-        height: 5px;
-        background: #FFF;
-    }
-}
 
 .footer{
     background-color: $black;
     & a{
         text-decoration: none;
-        &:hover {
-            text-decoration: underline;
-            transition: .7s;
-            color: $grey2;
-        }
     }
     & .wrapper{
         padding: 50px 20px;
@@ -413,15 +386,14 @@ h3 {
             flex-direction: column;
             justify-content: center;
             padding: 5px;
-        }
+            & a {
+                margin: 0 auto;
+            }
 
-        &-logo__link {
-            margin: 0 auto;
             & img {
                 width: 200px;
             }
         }
-    
     }
 .adress {
     display: flex;
@@ -433,6 +405,21 @@ h3 {
 .video {
     padding: 20px;
 }
+.name-item {
+    font-size: $font-size24;
+    padding: 20px 0;
+    & a {
+        color: $white;
+        text-decoration: none;
+        &:hover {
+            text-decoration: underline;
+            transition: .7s;
+            color: $grey2;
+        }
+
+    }
+}
+
 .copy-right {
     background-color: $white;
     text-align: center;
@@ -440,13 +427,10 @@ h3 {
     & a {
         color: $black;
         text-decoration: none;
-    }
-}
-.name-item {
-    font-size: $font-size24;
-    padding: 20px 0;
-    & a {
-        color: $white;
-        text-decoration: none;
+        &:hover {
+            text-decoration: underline;
+            transition: .7s;
+        }
+
     }
 }

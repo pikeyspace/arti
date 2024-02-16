@@ -1,17 +1,117 @@
+@media(max-width: 1350px){
+    .footer-logo {
+        display: none !important;
+    }
+    .team {
+        &-item {
+            max-width: 348px !important;
+        }
+    }
+}
+
 @media(max-width: 1100px) {
+    .section {
+        width: 100%;
+        &-block {
+            width: 100%!important;
+            align-items: start !important;
+        & .bg-image{
+            margin-bottom: 30px;
+            background-size: contain;
+            background-position: center center;
+        }
+    }
+    }
+
+    .content {
+        height: auto !important;
+        margin-bottom: 90px;
+    }
+
+    .reverse {
+        flex-direction: column-reverse !important;
+    }
+
+    .slider {
+        width: 100% !important;
+        &-item {
+            background-position: top !important;
+        }
+    }
+
+    .footer {
+        & .wrapper {
+            flex-direction: column !important;
+        }
+        &-block {
+            &.name {
+                display: flex !important;
+                flex-direction: column !important;
+                text-align: center !important;
+            }
+        }
+    }
 }
 
-@media(max-width: 900px) {
+@media(max-width: 950px) {
+    .location {
+        text-align: center;
+    }
+    .adress {
+        display: flex;
+        flex-direction: column;
+    }
 }
 
-@media(max-width: 767px) {
+@media(max-width: 780px) {
+    .header-block{
+        width: auto !important;
+    }
+    .team-item {
+        margin-bottom: 20px;
+    }
+    .content-center {
+        justify-content: center !important;
+    }
 }
 
 @media(max-width: 700px) {
 }
 
+
 @media(max-width: 600px) {
+
+    .tabs__caption li {
+        -webkit-flex: 1 0 auto;
+        -ms-flex: 1 0 auto;
+        flex: 1 0 auto;
+    }
+    .vertical .tabs__caption {
+        float: none;
+        display: -webkit-flex;
+        display: -ms-flexbox;
+        display: flex;
+    }
+    .vertical .tabs__caption li {
+        border-width: 2px 2px 0;
+        border-radius: 5px 5px 0 0;
+    }
+    .vertical .tabs__caption li:last-child:before {
+        display: block;
+    }
+    .vertical .tabs__caption .active:after {
+        top: auto;
+        bottom: -5px;
+        left: 0;
+        right: 0;
+        width: auto;
+        height: 5px;
+        background: #FFF;
+    }
 }
+
+        
+    
 
 @media(max-width: 500px) {
 }
