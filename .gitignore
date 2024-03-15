@@ -1,1 +1,6 @@
-
+node_modules
+gulpfiles.js
+package-lock.json
+package.json
+README.md
+readme.txt
