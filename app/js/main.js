@@ -30,15 +30,64 @@ $('.slider').slick({
 
 
 
-// Slider for review
+$(function() {
+    $('.burger').on('click', function() {
+        $(this).toggleClass('active');
+        $('body').toggleClass('stop-scroll');
+        $('.menu').toggleClass('visible');
+    })
+    $('.menu-link, .menu-list').on('click', function() {
+        $('.burger').removeClass('active');
+        $('.menu').removeClass('visible');
+        $('body').removeClass('stop-scroll');
+
+    })
+    $('.team-unit__info_link a').on('click', function(){
+        $('body').addClass('stop-scroll');
+        $('.header .wrapper').addClass('display-none');
+    })
+    $('.closepopup').on('click', function(){
+        $('body').removeClass('stop-scroll');
+        $('.header .wrapper').removeClass('display-none');
+    })
+
+})
+
+
 // $(function() {
-//     $('.slider').slick({
-//         dots: false,
-//         speed: 3000,
-//         autoplay: false,
-//         cssEase: 'linear',
-//         autoplaySpeed: 3000,
-//         prevArrow: false,
-//         nextArrow: false
+//     $(".scroll").on("click", function(event) {
+//         event.preventDefault();
+//         var id = $(this).attr('href'),
+//             top = $(id).offset().top,
+//             offset = $('header').innerHeight();
+//         $('body,html').animate({ scrollTop: top - offset }, 1500);
 //     });
 // });
+
+$(function() {
+    $('.gallery').magnificPopup({
+        delegate: 'a',
+        type: 'image',
+        tLoading: 'Loading image #%curr%...',
+        mainClass: 'mfp-img-mobile',
+        gallery: {
+            enabled: true,
+            navigateByImgClick: true,
+            preload: [0, 1] // Will preload 0 - before current, and 1 after the current image
+        },
+    });
+});
+
+
+// Slider for review
+$(function() {
+    $('.comment-slider').slick({
+        dots: false,
+        speed: 4000,
+        autoplay: true,
+        cssEase: 'linear',
+        autoplaySpeed: 3000,
+        prevArrow: false,
+        nextArrow: false
+    });
+});
